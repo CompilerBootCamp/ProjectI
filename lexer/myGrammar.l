@@ -16,6 +16,7 @@ key2         ("loop"|"for"|"in"|"reverse"|"foreach"|"from"|"if"|"then"|"else"|"a
 key          {key1}|{key2}
 %%
 \n           {position=1; ++line;}
+{terminal}   {printf("Terminal in line %d, position %d\n", line, position); position+=yyleng;}
 {delimeter}  {printf("Delimeter %s in line %d, position %d\n", yytext, line, position); position+=yyleng;}
 {assignment} {printf("Assigment %s in line %d, position %d\n", yytext, line, position); position+=yyleng;}
 {operator}   {printf("Operator %s in line %d, position %d\n", yytext, line, position); position+=yyleng;}
@@ -23,6 +24,5 @@ key          {key1}|{key2}
 {key}        {printf("Keyword %s in line %d, position %d\n", yytext, line, position); position+=yyleng;}
 {intconst}   {printf("Integer constant %s in line %d, position %d\n", yytext, line, position); position+=yyleng;}
 {identifier} {printf("Identifier %s in line %d, position %d\n", yytext, line, position); position+=yyleng;}
-{terminal}   {printf("Terminal in line %d, position %d\n", line, position); position+=yyleng;}
 %%
 int yywrap(){return 1;}
