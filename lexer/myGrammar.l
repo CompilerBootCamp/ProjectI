@@ -4,7 +4,7 @@
 int position = 1, line = 1;
 %}
 assignment   (:=)
-operator	["."|"<"|":"|"="|">"|"/"|"*"|"%"|"+"|"-"|","]
+operator	([<\>\/]=)|["."|"<"|":"|"="|">"|"/"|"*"|"%"|"+"|"-"|","]
 delimeter    [\{\}\(\)\[\]]
 digit        [0-9]
 intconst     [+\-]?{digit}+
