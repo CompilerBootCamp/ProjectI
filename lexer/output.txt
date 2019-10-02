@@ -1,0 +1,62 @@
+Integer constant 123 in line 1, position 1
+Identifier _afd in line 1, position 5
+Terminal in line 1, position 10
+Terminal in line 2, position 1
+Delimeter ( in line 3, position 1
+Delimeter ) in line 3, position 3
+Delimeter [ in line 3, position 5
+Delimeter [ in line 3, position 6
+Delimeter ] in line 3, position 8
+Delimeter { in line 3, position 10
+Delimeter } in line 3, position 12
+Terminal in line 3, position 13
+Terminal in line 4, position 1
+Assigment := in line 5, position 2
+Terminal in line 5, position 5
+Keyword var in line 6, position 7
+Terminal in line 6, position 10
+Keyword is in line 7, position 1
+Terminal in line 7, position 3
+Keyword type in line 8, position 3
+Terminal in line 8, position 7
+Keyword routine in line 9, position 1
+Terminal in line 9, position 8
+Keyword end in line 10, position 2
+Keyword integer in line 10, position 6
+Terminal in line 10, position 13
+Keyword real in line 11, position 1
+Keyword boolean in line 11, position 7
+Keyword record in line 11, position 16
+Terminal in line 11, position 22
+Keyword array in line 12, position 1
+Terminal in line 12, position 6
+Keyword while in line 13, position 1
+Terminal in line 13, position 6
+Keyword for in line 14, position 1
+Terminal in line 14, position 4
+Keyword in in line 15, position 1
+Terminal in line 15, position 3
+Keyword reverse in line 16, position 1
+Terminal in line 16, position 8
+Keyword foreach in line 17, position 1
+Terminal in line 17, position 8
+Keyword from in line 18, position 1
+Terminal in line 18, position 5
+Keyword loop in line 19, position 1
+Terminal in line 19, position 5
+Keyword if in line 20, position 1
+Terminal in line 20, position 3
+Keyword then in line 21, position 1
+Terminal in line 21, position 5
+Keyword else in line 22, position 1
+Terminal in line 22, position 5
+Keyword and in line 23, position 1
+Terminal in line 23, position 4
+Keyword or in line 24, position 1
+Terminal in line 24, position 3
+Keyword xor in line 25, position 1
+Terminal in line 25, position 4
+Keyword true in line 26, position 1
+Terminal in line 26, position 5
+Keyword false in line 27, position 1
+Terminal in line 27, position 6
