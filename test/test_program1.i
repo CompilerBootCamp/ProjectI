@@ -23,22 +23,22 @@ is
 	then 
 	    retVal := false;
     else
-	    while i < size 
-		loop
-		    if ((i + 1) != size) and (arr[i] > arr[i + 1])
-			then
-			    buf := arr[i];
+        while i < size 
+        loop
+            if ((i + 1) != size) and (arr[i] > arr[i + 1])
+            then
+                buf := arr[i];
                 arr[i] = array[i+1];
                 array[i+1] = buf;
                 swap_cnt := 1;
         end
-		i := i + 1;
+        i := i + 1;
         if (i = array_size) and swap_cnt = 1)
-		then
-		   swap_cnt := 0;
+        then
+           swap_cnt := 0;
            i := 0;
         end;
-		retVal := true;
+        retVal := true;
     end;
     bubble_sort := retVal;
 end
@@ -65,7 +65,7 @@ is
         data1.arr[i] := i % 5;
 	end;
 
-	for i in reverse 1 .. size
+    for i in reverse 1 .. size
     loop
 		data2.arr[i] := i % 7;
     end;
@@ -74,9 +74,9 @@ is
     bubble_sort(data2.arr, data2.size);
 
     if func_without_params
-	then
-	    func_without_body_and_type;
-	end;
+    then
+        func_without_body_and_type;
+    end;
 
     main := 0;
 end
