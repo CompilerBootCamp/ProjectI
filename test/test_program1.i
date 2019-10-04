@@ -1,11 +1,11 @@
 var realVal1 : real;
-var realval2 : 3.14159;
+var realVal2 is 3.14159;
 
 type Data_child
 is 
     record 
-        arr : array [20] integer;
-        size : integer;
+        var arr : array [20] integer;
+        var size : integer;
     end;
 
 type Data is Data_child;
@@ -25,15 +25,15 @@ is
     else
         while i < size 
         loop
-            if ((i + 1) != size) and (arr[i] > arr[i + 1])
+            if ((i + 1) /= size) and (arr[i] > arr[i + 1])
             then
                 buf := arr[i];
-                arr[i] = array[i+1];
+                arr[i] := array[i+1];
                 array[i+1] = buf;
                 swap_cnt := 1;
         end
         i := i + 1;
-        if (i = array_size) and swap_cnt = 1)
+        if (i = array_size) and (swap_cnt = 1)
         then
            swap_cnt := 0;
            i := 0;
@@ -67,7 +67,7 @@ is
 
     for i in reverse 1 .. size
     loop
-		data2.arr[i] := i % 7;
+        data2.arr[i] := i % 7;
     end;
 
     bubble_sort(data1.arr, data1.size);

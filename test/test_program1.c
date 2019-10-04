@@ -1,3 +1,5 @@
+#include "stdbool.h"
+
 float realVal1;
 float realVal2 = 3.14159; /* В I сделать объявляение переменной БЕЗ явного указания типа */
 
@@ -6,7 +8,7 @@ typedef struct Data_child {
 	int size;
 } Data_child;
 
-typedef Data Data_child;
+typedef Data_child Data;
 
 bool bubble_sort(int *arr, int size)
 {
@@ -36,8 +38,9 @@ bool bubble_sort(int *arr, int size)
                 swap_cnt = 0;
                 i = 0;
             }
-        	retVal = true;
+            retVal = true;
         }
+	}
     return retVal;
 }
 	
@@ -45,7 +48,7 @@ bool func_without_params (void) {
     return true;	
 }
 	
-void func_without_body_and_type {
+void func_without_body_and_type (void) {
 
 }
 
