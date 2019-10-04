@@ -1,5 +1,6 @@
 %{
 #include <stdio.h>
+#include "lex_def.h"
 
 int position = 1, line = 1;
 %}

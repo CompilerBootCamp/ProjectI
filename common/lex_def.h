@@ -1,0 +1,76 @@
+#ifndef _LEX_DEF_H_
+#define _LEX_DEF_H_
+
+
+#include <stdint.h>
+
+#define ID_SIZE_MAX 32
+
+
+// In C++ realisation define size of enum = uint16_t
+typedef enum {
+// Base
+    TERMINAL = 0x0101,
+    ASSIGNMENT,
+    IDENTIFIER,
+    WHITESPACE,
+    DELIMETER,
+    COMMA,
+    POINT,
+// Operators
+    OPERATOR_PLUS = 0x0201,
+    OPERATOR_MINUS,
+    OPERATOR_MULT,
+    OPERATOR_DIV,
+    OPERATOR_MOD,
+// Logical operators
+    LOGICAL_OPERATOR_OR = 0x0301,
+    LOGICAL_OPERATOR_AND,
+    LOGICAL_OPERATOR_XOR,
+// Relations
+    RELATION_LESS = 0x0301,
+    RELATION_LESS_OR_EQUAL,
+    RELATION_GREAT,
+    RELATION_GREAT_OR_EQUAL,
+    RELATION_EQUAL,
+    RELATION_NOT_EQUAL,
+// Brackets
+    BRACKET_CIRCLE_LEFT = 0x0401,
+    BRACKET_CIRCLE_RIGHT,
+    BRACKET_SQUARE_LEFT,
+    BRACKET_SQUARE_RIGHT,
+    BRACKET_CURLY_LEFT,
+    BRACKET_CURLY_RIGHT,
+// Keywords
+    KEYWORD_VAR = 0x0501,
+    KEYWORD_IS,
+    KEYWORD_TYPE,
+    KEYWORD_ROUTINE,
+    KEYWORD_END,
+    KEYWORD_INTEGER,
+    KEYWORD_REAL,
+    KEYWORD_BOOLEAN,
+    KEYWORD_RECORD,
+    KEYWORD_ARRAY,
+    KEYWORD_WHILE,
+    KEYWORD_LOOP,
+    KEYWORD_FOR,
+    KEYWORD_IN,
+    KEYWORD_REVERSE,
+    KEYWORD_FOREACH,
+    KEYWORD_FROM,
+    KEYWORD_IF,
+    KEYWORD_THEN,
+    KEYWORD_ELSE,
+    KEYWORD_TRUE,
+    KEYWORD_FALSE
+} TokenType;
+
+typedef struct {
+    TokenType type;
+    char identifier[ID_SIZE_MAX];
+    uint32_t line;
+    uint32_t position;
+} Token;
+
+#endif // _LEX_DEF_H_
