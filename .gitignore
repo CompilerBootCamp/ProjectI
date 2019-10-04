@@ -1,4 +1,5 @@
 # Not add bin and output folders
 
 bin
+build
 output
