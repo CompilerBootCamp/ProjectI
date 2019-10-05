@@ -2,7 +2,7 @@
 var g_real_val : real;
 var g_real_val_init : real is 3.14;
 //wrong - var g_real_val_init : real is 5; < Type is another. it is not Assignment!
-//wrong - var g_real_val_init : real is g_real_val + 5; < expression in init
+//wrong - var g_real_val_init : real is g_real_val + 5; < var in init
 
 var g_int_val : integer;
 var g_int_val_init : integer is 0;
@@ -10,7 +10,7 @@ var g_int_val_init : integer is 0;
 
 var g_bool_val : boolean;
 var g_bool_val_init : boolean is false;
-//wrong - var g_bool_val_init : boolean is 5; Type is another.
+//wrong - var g_bool_val_init : boolean is 5; Type is another.it is not Assignment!
 //wrong - var g_bool_val_init : boolean is 0; Type is another. it is not Assignment!
 var g_bool_val_init_true  is 1 < 5;
 
