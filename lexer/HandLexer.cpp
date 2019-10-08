@@ -1,11 +1,28 @@
+#include <iostream>
+#include <fstream>
+#include <string>
 #include <cstring>
 #include "HandLexer.hpp"
 
 namespace Ilang
 {
-    HandLexer::HandLexer() {
+    HandLexer::HandLexer(const std::string& filename) {
         line = 0;
         position = 0;
+        wordSize = 0;
+        fileSize = 0;
+
+        std::ifstream in(filename);
+
+        if(in.is_open()) {
+			for(int i = 0;;i++) {
+				// Перенос строки - пропускает!!!
+            	in >> file[i];
+				std::cout << file[i];
+            	if(in.eof()) break;
+			}
+        }
+        in.close();
     }
 
     HandLexer::~HandLexer() {};
@@ -13,7 +30,7 @@ namespace Ilang
     bool HandLexer::doTokenisation(void) {
         for (unsigned int i = 0; i < fileSize; i++) {
             if(isSingleSign(file[i])) {
-                // Print token
+                std::cout << "Token";
             } else if (isAmbigousSign(file[i])) {
                 if(isEqualSign(file[i])) {
                     // >= /= <=

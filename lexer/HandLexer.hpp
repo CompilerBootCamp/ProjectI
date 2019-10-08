@@ -5,7 +5,7 @@ namespace Ilang
 {
     class HandLexer {
     public:
-        HandLexer();
+        HandLexer(const std::string& filename);
         ~HandLexer();
 
         bool doTokenisation(void);

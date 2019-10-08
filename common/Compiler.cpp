@@ -1,13 +1,19 @@
-#include "stdio.h"
+#include <iostream>
+#include <fstream>
+#include <string>
 #include "Compiler.hpp"
 
 namespace Ilang
 {
-    Compiler::Compiler(){};
+    Compiler::Compiler(const std::string& filename){
+        lexer = new HandLexer(filename);
+    };
 
-    Compiler::~Compiler() {};
+    Compiler::~Compiler() {
+    	delete lexer;
+    };
 
     bool Compiler::compile(void) {
         return false;	
     }
-} // namespae Ilang
+} // namespace Ilang

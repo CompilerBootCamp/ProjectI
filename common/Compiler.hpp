@@ -7,13 +7,13 @@ namespace Ilang
 {
     class Compiler {
     public:
-        Compiler();
+        Compiler(const std::string& filename);
         ~Compiler();
 
     bool compile(void);
     
     private:
-        HandLexer lexer;
+        HandLexer* lexer;
     }; // class Compiler
 } // namespae Lexer
 
