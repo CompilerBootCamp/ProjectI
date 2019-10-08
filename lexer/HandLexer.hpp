@@ -19,14 +19,13 @@ namespace Ilang
         static bool isKeyWord(const char* word, unsigned int len);
         
         static const unsigned int maxIdentifierSize = 32;
-        static const unsigned int maxFileSize = 0xFFFF;
         
         unsigned int line;
         unsigned int position;
         unsigned int wordSize;
         char word[maxIdentifierSize];
         unsigned int fileSize;
-        char file[maxIdentifierSize];
+        std::string file;
     }; // class HandLexer
 } // namespae Ilang
 

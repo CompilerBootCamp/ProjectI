@@ -14,6 +14,7 @@ namespace Ilang
     };
 
     bool Compiler::compile(void) {
+    	lexer->doTokenisation();
         return false;	
     }
 } // namespace Ilang
