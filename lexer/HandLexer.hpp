@@ -16,7 +16,11 @@ namespace Ilang
         static bool isSingleSign(const char sign); 
         static bool isAmbigousSign(const char sign);
         static bool isEqualSign(const char sign);
+        static bool isDotSign(const char sign);
+        static bool isWhitespace(const char sign);
         static bool isKeyWord(const char* word, unsigned int len);
+        bool wordIsNumber(void);
+        void printToken(const char* word, unsigned int len);
         
         static const unsigned int maxIdentifierSize = 32;
         
@@ -24,7 +28,6 @@ namespace Ilang
         unsigned int position;
         unsigned int wordSize;
         char word[maxIdentifierSize];
-        unsigned int fileSize;
         std::string file;
     }; // class HandLexer
 } // namespae Ilang

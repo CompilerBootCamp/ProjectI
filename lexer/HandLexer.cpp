@@ -11,22 +11,12 @@ namespace Ilang
         line = 0;
         position = 0;
         wordSize = 0;
-        fileSize = 0;
 
         std::ifstream in(filename);
         std::stringstream ss;
 
         if(in.is_open()) {
             ss << in.rdbuf();
-			//for(int i = 0;;i++) {
-
-                // Перенос строки - пропускает!!!
-			//	in.getline(&file[i], maxFileSize);
-			//	in << "";
-//                in >> file[i];
-//                std::cout << file[i];
-             //   if(in.eof()) break;
-			//}
 	        file = ss.str();
         }
         in.close();
@@ -35,29 +25,37 @@ namespace Ilang
     HandLexer::~HandLexer() {};
 
     bool HandLexer::doTokenisation(void) {
-//    	for file.length() //последний \n тоже входит в размер
-    	/*
-        for (unsigned int i = 0; i < fileSize;) {
+        for (unsigned int i = 0; i < file.length();i++) {
             if(isSingleSign(file[i])) {
-                std::cout << "Token " << file[i] << "\n";
-                wordSize = 0;
-                i++;
-            } else if (isAmbigousSign(file[i])) {
-                if(isEqualSign(file[i])) {
-                    std::cout << "Token " << file[i] << file[i+1] << "\n";
-                    i+=2;
-                } else {
-            		std::cout << "Token " << file[i] << "\n";
-            		i++;
+                if(wordSize) {
+                	printToken(word, wordSize);
+                    wordSize = 0;
                 }
-                wordSize = 0;
-            } else if (isKeyWord(&file[i], wordSize)) { //to do
-        		std::cout << "Keyword ";
-        		for (unsigned j = 0; j < wordSize; j++) {
-            		std::cout << file[i+j];
-        		}
+                printToken(&file[i], 1);
+            } else if (isAmbigousSign(file[i])) {
+                if(wordSize && !(isdigit(file[i+1]) && isdigit(file[i-1]))) {
+                	printToken(word, wordSize);
+                    wordSize = 0;
+                }
+                if(isEqualSign(file[i+1]) || isDotSign(file[i+1])) {
+                	printToken(&file[i], 2);
+                    i++;
+                } else if (isdigit(file[i+1]) && isdigit(file[i-1])) {
+                	word[wordSize] = file[i];
+                	wordSize++;
+                } else {
+                	printToken(&file[i], 1);
+                }
+            } else if (isWhitespace(file[i])) {
+                if(wordSize) {
+                	printToken(word, wordSize);
+                    wordSize = 0;
+                }
+            } else {// add sign to word
+            	word[wordSize] = file[i];
+            	wordSize++;
             }
-        }*/
+        }
         
         return false;
     }
@@ -70,11 +68,10 @@ namespace Ilang
     bool HandLexer::isSingleSign(const char sign) {
         if ( sign == '(' || sign == ')' ||
              sign == '[' || sign == ']' ||
-             sign == ':' || sign == '.' ||
+             sign == ';' || sign == '=' ||
              sign == '*' || sign == '%' ||
              sign == '+' || sign == '-' ||
-             sign == ',' || sign == ';' ||
-             sign == '=') {
+             sign == ',') {
             return true;
         }
         return false;
@@ -82,7 +79,8 @@ namespace Ilang
     
     bool HandLexer::isAmbigousSign(const char sign) {
         if ( sign == '/' || sign == '<' ||
-             sign == '>' || sign == ':') {
+             sign == '>' || sign == ':' ||
+			 sign == '.') {
             return true;
         }
         return false;
@@ -93,7 +91,25 @@ namespace Ilang
         return false;
     }
     
+    bool HandLexer::isDotSign(const char sign) {
+        if (sign == '.') return true;
+        return false;
+    }
+
+    bool HandLexer::isWhitespace(const char sign) {
+        if (sign == ' ' || sign == '\t' || sign == '\n') return true;
+        return false;
+    }
+
+    bool HandLexer::wordIsNumber(void) {
+    	for(unsigned i = 0; i < wordSize; i++) {
+    		if(isdigit(word[i])) return false;
+    	}
+    	return false;
+    }
+
     bool HandLexer::isKeyWord(const char* word, unsigned int len) {
+    	if(len == 0) return false;
         if (strncmp(word, "if", len)      == 0 ||
             strncmp(word, "is", len)      == 0 ||
             strncmp(word, "in", len)      == 0 ||
@@ -122,5 +138,18 @@ namespace Ilang
             return true;
         }
           return false;
+    }
+
+    void HandLexer::printToken(const char* word, unsigned int len) {
+    	if(isKeyWord(word, len)) {
+    		std::cout << "Keyword ";
+    	} else {
+    	    std::cout << "Token ";
+    	}
+        for (unsigned j = 0; j < len; j++) {
+		    std::cout << word[j];
+	    }
+    	std::cout << "\n";
+        return;
     }
 } // namespae Ilang

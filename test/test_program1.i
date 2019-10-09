@@ -29,8 +29,8 @@ is
             then
                 buf := arr[i];
                 arr[i] := array[i+1];
-                array[i+1] = buf;
-                swap_cnt := 1;
+                array[i+1]:=buf;
+                swap_cnt:=1;
         end
         i := i + 1;
         if (i = array_size) and (swap_cnt = 1)
