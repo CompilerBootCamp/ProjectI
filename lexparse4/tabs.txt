@@ -1,0 +1,180 @@
+<Program type="rule" value="">
+	<ProgramFull type="rule" value="">
+		<SimpleDeclaration type="rule" value="">
+			<VariableDeclaration type="rule" value="">
+				<VAR_TOKEN type="token" value="">
+				</VAR_TOKEN>
+				<IDENT type="token" value="realVal1">
+				</IDENT>
+				<COLON type="token" value="">
+				</COLON>
+				<Type type="rule" value="">
+					<PrimitiveType type="rule" value="">
+						<REAL_TOKEN type="token" value="">
+						</REAL_TOKEN>
+					</PrimitiveType>
+				</Type>
+			</VariableDeclaration>
+		</SimpleDeclaration>
+		<TERMINAL type="token" value="">
+		</TERMINAL>
+		<ProgramFull type="rule" value="">
+			<SimpleDeclaration type="rule" value="">
+				<VariableDeclaration type="rule" value="">
+					<VAR_TOKEN type="token" value="">
+					</VAR_TOKEN>
+					<IDENT type="token" value="realVal2">
+					</IDENT>
+					<IS_TOKEN type="token" value="">
+					</IS_TOKEN>
+					<Expression type="rule" value="">
+						<Relation type="rule" value="">
+							<Simple type="rule" value="">
+								<Factor type="rule" value="">
+									<Summand type="rule" value="">
+										<Primary type="rule" value="">
+											<REAL_LITERAL type="token" value="3.14159">
+											</REAL_LITERAL>
+										</Primary>
+									</Summand>
+								</Factor>
+							</Simple>
+						</Relation>
+					</Expression>
+				</VariableDeclaration>
+			</SimpleDeclaration>
+			<TERMINAL type="token" value="">
+			</TERMINAL>
+			<ProgramFull type="rule" value="">
+				<SimpleDeclaration type="rule" value="">
+					<TypeDeclaration type="rule" value="">
+						<TYPE_TOKEN type="token" value="">
+						</TYPE_TOKEN>
+						<IDENT type="token" value="Data_child">
+						</IDENT>
+						<IS_TOKEN type="token" value="">
+						</IS_TOKEN>
+						<Type type="rule" value="">
+							<RecordType type="rule" value="">
+								<REC_TOKEN type="token" value="">
+								</REC_TOKEN>
+								<VariableDeclarations type="rule" value="">
+									<VariableDeclaration type="rule" value="">
+										<VAR_TOKEN type="token" value="">
+										</VAR_TOKEN>
+										<IDENT type="token" value="arr">
+										</IDENT>
+										<COLON type="token" value="">
+										</COLON>
+										<Type type="rule" value="">
+											<ArrayType type="rule" value="">
+												<ARRAY_TOKEN type="token" value="">
+												</ARRAY_TOKEN>
+												<LBRACKET type="token" value="">
+												</LBRACKET>
+												<Expression type="rule" value="">
+													<Relation type="rule" value="">
+														<Simple type="rule" value="">
+															<Factor type="rule" value="">
+																<Summand type="rule" value="">
+																	<Primary type="rule" value="">
+																		<INT_LITERAL type="token" value="20">
+																		</INT_LITERAL>
+																	</Primary>
+																</Summand>
+															</Factor>
+														</Simple>
+													</Relation>
+												</Expression>
+												<RBRACKET type="token" value="">
+												</RBRACKET>
+												<Type type="rule" value="">
+													<PrimitiveType type="rule" value="">
+														<INT_TOKEN type="token" value="">
+														</INT_TOKEN>
+													</PrimitiveType>
+												</Type>
+											</ArrayType>
+										</Type>
+									</VariableDeclaration>
+									<TERMINAL type="token" value="">
+									</TERMINAL>
+									<VariableDeclarations type="rule" value="">
+										<VariableDeclaration type="rule" value="">
+											<VAR_TOKEN type="token" value="">
+											</VAR_TOKEN>
+											<IDENT type="token" value="size">
+											</IDENT>
+											<COLON type="token" value="">
+											</COLON>
+											<Type type="rule" value="">
+												<PrimitiveType type="rule" value="">
+													<INT_TOKEN type="token" value="">
+													</INT_TOKEN>
+												</PrimitiveType>
+											</Type>
+										</VariableDeclaration>
+										<TERMINAL type="token" value="">
+										</TERMINAL>
+									</VariableDeclarations>
+								</VariableDeclarations>
+								<END_TOKEN type="token" value="">
+								</END_TOKEN>
+							</RecordType>
+						</Type>
+					</TypeDeclaration>
+				</SimpleDeclaration>
+				<TERMINAL type="token" value="">
+				</TERMINAL>
+				<ProgramFull type="rule" value="">
+					<SimpleDeclaration type="rule" value="">
+						<TypeDeclaration type="rule" value="">
+							<TYPE_TOKEN type="token" value="">
+							</TYPE_TOKEN>
+							<IDENT type="token" value="Data">
+							</IDENT>
+							<IS_TOKEN type="token" value="">
+							</IS_TOKEN>
+							<Type type="rule" value="">
+								<IDENT type="token" value="Data_child">
+								</IDENT>
+							</Type>
+						</TypeDeclaration>
+					</SimpleDeclaration>
+					<TERMINAL type="token" value="">
+					</TERMINAL>
+					<ProgramFull type="rule" value="">
+						<SimpleDeclaration type="rule" value="">
+							<TypeDeclaration type="rule" value="">
+								<TYPE_TOKEN type="token" value="">
+								</TYPE_TOKEN>
+								<IDENT type="token" value="bubble_sort_arr">
+								</IDENT>
+								<IS_TOKEN type="token" value="">
+								</IS_TOKEN>
+								<Type type="rule" value="">
+									<ArrayType type="rule" value="">
+										<ARRAY_TOKEN type="token" value="">
+										</ARRAY_TOKEN>
+										<LBRACKET type="token" value="">
+										</LBRACKET>
+										<RBRACKET type="token" value="">
+										</RBRACKET>
+										<Type type="rule" value="">
+											<PrimitiveType type="rule" value="">
+												<INT_TOKEN type="token" value="">
+												</INT_TOKEN>
+											</PrimitiveType>
+										</Type>
+									</ArrayType>
+								</Type>
+							</TypeDeclaration>
+						</SimpleDeclaration>
+						<TERMINAL type="token" value="">
+						</TERMINAL>
+					</ProgramFull>
+				</ProgramFull>
+			</ProgramFull>
+		</ProgramFull>
+	</ProgramFull>
+</Program>
