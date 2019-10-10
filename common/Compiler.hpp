@@ -2,6 +2,7 @@
 #define _COMPILER_HPP_
 
 #include "HandLexer.hpp"
+#include "Token.hpp"
 
 namespace Ilang
 {
@@ -13,7 +14,10 @@ namespace Ilang
     bool compile(void);
     
     private:
+        static const unsigned int maxTokenNum = 0xFFFF;
+
         HandLexer* lexer;
+        Token token[maxTokenNum];
     }; // class Compiler
 } // namespae Lexer
 

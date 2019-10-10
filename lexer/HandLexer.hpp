@@ -20,7 +20,7 @@ namespace Ilang
         static bool isWhitespace(const char sign);
         static bool isKeyWord(const char* word, unsigned int len);
         bool wordIsNumber(void);
-        void printToken(const char* word, unsigned int len);
+        void printToken(const char* word, unsigned int len, unsigned int line, unsigned int pos);
         
         static const unsigned int maxIdentifierSize = 32;
         
