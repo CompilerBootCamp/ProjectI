@@ -77,25 +77,24 @@ end;
 
 #printf("<%RULE%,%LENGTH%,%BRANCH%>+");
 
-Program : 
+Program :
 		| ProgramFull
-Identifier : IDENT
 ProgramFull : SimpleDeclaration TERMINAL
 			| SimpleDeclaration TERMINAL ProgramFull
 			| RoutineDeclaration TERMINAL
 			| RoutineDeclaration TERMINAL ProgramFull
 SimpleDeclaration : VariableDeclaration
 				  | TypeDeclaration
-VariableDeclaration : VAR_TOKEN Identifier COLON Type
-                    | VAR_TOKEN Identifier COLON Type IS_TOKEN Expression
-                    | VAR_TOKEN Identifier IS_TOKEN Expression
+VariableDeclaration : VAR_TOKEN IDENT COLON Type
+                    | VAR_TOKEN IDENT COLON Type IS_TOKEN Expression
+                    | VAR_TOKEN IDENT IS_TOKEN Expression
 VariableDeclarations : VariableDeclaration TERMINAL
 					 | VariableDeclaration TERMINAL VariableDeclarations 
-TypeDeclaration : TYPE_TOKEN Identifier IS_TOKEN Type
+TypeDeclaration : TYPE_TOKEN IDENT IS_TOKEN Type
 Type : PrimitiveType
 	 | ArrayType
 	 | RecordType
-	 | Identifier 
+	 | IDENT 
 PrimitiveType : INT_TOKEN
 			  | REAL_TOKEN
 			  | BOOL_TOKEN 
@@ -134,35 +133,34 @@ Primary : INT_LITERAL
 		| FALSE_TOKEN
 		| ModifiablePrimary
 		| RoutineCall
-ModifiablePrimary : Identifier
-                  | Identifier ModifiableSecondary
-ModifiableSecondary : POINT Identifier
+ModifiablePrimary : IDENT
+                  | IDENT ModifiableSecondary
+ModifiableSecondary : POINT IDENT
 					| LBRACKET Expression RBRACKET
-					| POINT Identifier ModifiableSecondary
+					| POINT IDENT ModifiableSecondary
 					| LBRACKET Expression RBRACKET ModifiableSecondary
-RoutineDeclaration : ROUTINE_TOKEN Identifier
-                   | ROUTINE_TOKEN Identifier IS_TOKEN END_TOKEN
-                   | ROUTINE_TOKEN Identifier IS_TOKEN Body END_TOKEN
-                   | ROUTINE_TOKEN Identifier COLON Type
-                   | ROUTINE_TOKEN Identifier COLON Type IS_TOKEN END_TOKEN
-                   | ROUTINE_TOKEN Identifier COLON Type IS_TOKEN Body END_TOKEN
-                   | ROUTINE_TOKEN Identifier LPAREN RPAREN
-                   | ROUTINE_TOKEN Identifier LPAREN Parameters RPAREN
-                   | ROUTINE_TOKEN Identifier LPAREN RPAREN IS_TOKEN END_TOKEN
-                   | ROUTINE_TOKEN Identifier LPAREN Parameters RPAREN IS_TOKEN END_TOKEN
-                   | ROUTINE_TOKEN Identifier LPAREN RPAREN IS_TOKEN Body END_TOKEN
-                   | ROUTINE_TOKEN Identifier LPAREN Parameters RPAREN IS_TOKEN Body END_TOKEN
-                   | ROUTINE_TOKEN Identifier LPAREN RPAREN COLON Type
-                   | ROUTINE_TOKEN Identifier LPAREN Parameters RPAREN COLON Type
-                   | ROUTINE_TOKEN Identifier LPAREN RPAREN COLON Type IS_TOKEN END_TOKEN 
-                   | ROUTINE_TOKEN Identifier LPAREN Parameters RPAREN COLON Type IS_TOKEN END_TOKEN
-                   | ROUTINE_TOKEN Identifier LPAREN RPAREN COLON Type IS_TOKEN Body END_TOKEN  
-                   | ROUTINE_TOKEN Identifier LPAREN Parameters RPAREN COLON Type IS_TOKEN Body END_TOKEN
-ParameterDeclaration : Identifier COLON Identifier
-					 | Identifier COLON PrimitiveType
+RoutineDeclaration : ROUTINE_TOKEN IDENT
+                   | ROUTINE_TOKEN IDENT IS_TOKEN END_TOKEN
+                   | ROUTINE_TOKEN IDENT IS_TOKEN Body END_TOKEN
+                   | ROUTINE_TOKEN IDENT COLON Type
+                   | ROUTINE_TOKEN IDENT COLON Type IS_TOKEN END_TOKEN
+                   | ROUTINE_TOKEN IDENT COLON Type IS_TOKEN Body END_TOKEN
+                   | ROUTINE_TOKEN IDENT LPAREN RPAREN
+                   | ROUTINE_TOKEN IDENT LPAREN Parameters RPAREN
+                   | ROUTINE_TOKEN IDENT LPAREN RPAREN IS_TOKEN END_TOKEN
+                   | ROUTINE_TOKEN IDENT LPAREN Parameters RPAREN IS_TOKEN END_TOKEN
+                   | ROUTINE_TOKEN IDENT LPAREN RPAREN IS_TOKEN Body END_TOKEN
+                   | ROUTINE_TOKEN IDENT LPAREN Parameters RPAREN IS_TOKEN Body END_TOKEN
+                   | ROUTINE_TOKEN IDENT LPAREN RPAREN COLON Type
+                   | ROUTINE_TOKEN IDENT LPAREN Parameters RPAREN COLON Type
+                   | ROUTINE_TOKEN IDENT LPAREN RPAREN COLON Type IS_TOKEN END_TOKEN 
+                   | ROUTINE_TOKEN IDENT LPAREN Parameters RPAREN COLON Type IS_TOKEN END_TOKEN
+                   | ROUTINE_TOKEN IDENT LPAREN RPAREN COLON Type IS_TOKEN Body END_TOKEN  
+                   | ROUTINE_TOKEN IDENT LPAREN Parameters RPAREN COLON Type IS_TOKEN Body END_TOKEN
+ParameterDeclaration : IDENT COLON IDENT
+					 | IDENT COLON PrimitiveType
 Parameters : ParameterDeclaration
 		   | ParameterDeclaration COMMA Parameters
-
 Body : SimpleDeclaration TERMINAL
      | Statement TERMINAL
      | SimpleDeclaration TERMINAL Body
@@ -173,14 +171,14 @@ Statement : Assignment
 		  | ForLoop
 		  | IfStatement 
 Assignment : ModifiablePrimary ASSIGN Expression 
-RoutineCall : Identifier LPAREN RPAREN 
-            | Identifier LPAREN Expressions RPAREN 
+RoutineCall : IDENT LPAREN RPAREN 
+            | IDENT LPAREN Expressions RPAREN 
 Expressions : Expression
 			| Expression COMMA Expressions
 WhileLoop : WHILE_TOKEN Expression LOOP_TOKEN END_TOKEN
 		  | WHILE_TOKEN Expression LOOP_TOKEN Body END_TOKEN
-ForLoop : FOR_TOKEN Identifier Range LOOP_TOKEN END_TOKEN 
-		| FOR_TOKEN Identifier Range LOOP_TOKEN Body END_TOKEN
+ForLoop : FOR_TOKEN IDENT Range LOOP_TOKEN END_TOKEN 
+		| FOR_TOKEN IDENT Range LOOP_TOKEN Body END_TOKEN
 Range : IN_TOKEN Expression FALLEN_COLON Expression
       | IN_TOKEN REVERSE_TOKEN Expression FALLEN_COLON Expression 
 IfStatement : IF_TOKEN Expression THEN_TOKEN Body END_TOKEN

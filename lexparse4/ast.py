@@ -25,6 +25,7 @@ while True:
 	x=l[i]
 	ln=x[1]
 	if x[1]>0:
+		shadows+=[' '.join([i[0] for i in l[:i+1]])]
 		j=i
 		while True:
 			y=tuple([k[0] for k in l[j-ln:j]])
@@ -61,11 +62,11 @@ def into(a,t=0):
 a=into(l[0])
 
 scheme=[]
-for i in a:	
+for i in a:
 	scheme+=[''.join(('\t'*i[1],''.join(i[0])))]
 
-with open("tabs.txt","w",encoding="utf-8") as f:
+with open("ast.xml","w",encoding="utf-8") as f:
 	f.write('\n'.join(scheme))
 	
-with open("shades.txt","w",encoding="utf-8") as f:
+with open("steps.log","w",encoding="utf-8") as f:
 	f.write('\n'.join(shadows))
