@@ -3,3 +3,7 @@
 bin
 build
 output
+
+.cproject
+.project
+.settings
