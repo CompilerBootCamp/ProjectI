@@ -1,8 +1,0 @@
-parser.tab.c: In function ‘yyparse’:
-parser.tab.c:1338:16: warning: implicit declaration of function ‘yylex’ [-Wimplicit-function-declaration]
- 1338 |       yychar = yylex ();
-      |                ^~~~~
-parser.tab.c:2132:7: warning: implicit declaration of function ‘yyerror’; did you mean ‘yyerrok’? [-Wimplicit-function-declaration]
- 2132 |       yyerror (YY_("syntax error"));
-      |       ^~~~~~~
-      |       yyerrok
