@@ -1,0 +1,3 @@
+*.pyc
+frontend/parsetab.py
+parselog.txt
